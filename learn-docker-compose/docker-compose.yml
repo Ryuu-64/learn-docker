@@ -1,0 +1,14 @@
+services:
+  mysql_1:
+    image: mysql:5.7
+    container_name: mysql_1
+    # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+    environment:
+      - TZ=UTC
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=schema_1
+      - MYSQL_TIMEZONE=UTC
+    volumes:
+      - ./var/lib/mysql/:/var/lib/mysql  # 将数据挂载到命名卷
+    ports:
+      - "3306:3306"
